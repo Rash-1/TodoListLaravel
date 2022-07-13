@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todo_lists', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->foreignId('category_id')->constrained();
-            $table->timestamp('done_at')->nullable();
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todo_lists');
+        Schema::dropIfExists('categories');
     }
 };
