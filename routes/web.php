@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $faker = Faker\Factory::create();
+
+
+
+    $limit = 10;
+
+
+
+    for ($i = 0; $i < $limit; $i++) {
+
+        $faker->name . ', Email Address: ' . $faker->unique()->email . ', Contact No' . $faker->phoneNumber . '<br>';
+
+    }
 });
