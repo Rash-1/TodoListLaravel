@@ -19,7 +19,7 @@ class TodoListFactory extends Factory
         return [
             'title' => $this->faker->realText(100),
             'description' => $this->faker->realText(),
-            'category_id' => 1 ,
+            'category_id' => $this->faker->numberBetween(1, 10) ,
         ];
     }
 }
