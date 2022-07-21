@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FilterTodoListRequest;
 use App\Http\Requests\TodoListRequest;
 use App\Http\Requests\UpdateTodoListRequest;
 use App\Models\Category;
@@ -70,5 +71,12 @@ class TodoListController extends Controller
     {
         $id->delete() ;
         return back() ;
+    }
+
+    public function filter(FilterTodoListRequest $request)
+    {
+        $todolists = TodoList::query()->where('category_id' , '=' , $request->get('category_id'))->get() ;
+        $categories = Category::all(['id' ,'name']) ;
+        return view('todolist.filter' , ['todolists' => $todolists , 'categories' => $categories]);
     }
 }

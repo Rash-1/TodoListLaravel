@@ -16,6 +16,7 @@ Route::get('/' , [\App\Http\Controllers\TodoListController::class , 'home']) ;
 Route::get('/todolists' , [\App\Http\Controllers\TodoListController::class , 'index']);
 Route::get('/todolists/create' , [\App\Http\Controllers\TodoListController::class , 'create']);
 Route::post('/todolists/store' , [\App\Http\Controllers\TodoListController::class , 'store']);
+Route::post('/todolists/filter' , [\App\Http\Controllers\TodoListController::class , 'filter']);
 Route::get('/todolists/{id}' , [\App\Http\Controllers\TodoListController::class , 'singlePage']);
 Route::get('/todolists/{id}/edit' , [\App\Http\Controllers\TodoListController::class , 'edit']);
 Route::patch('/todolists/{id}/update' , [\App\Http\Controllers\TodoListController::class , 'update']);
