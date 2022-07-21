@@ -2,6 +2,7 @@
 @section('content')
     <div class="container mt-3">
         <a class="btn btn-info p-2 my-2" href="/todolists/create">Add New Todo List</a>
+        <form action=""></form>
         <div class="row">
             <div class="col text-center ">
                 <table class="table">
@@ -9,7 +10,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Category</th>
+                        <th scope="col">Category_ID</th>
                         <th scope="col">Details</th>
                         <th scope="col">Action</th>
                     </tr>

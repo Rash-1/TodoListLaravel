@@ -7,6 +7,7 @@
                     <h4 class="display-4">Categories : </h4>
                     <a href="/categories/create" class="btn btn-primary mt-3">Add New Category</a>
                 </div>
+                @include('layouts.errors')
                 <ol class="list-group list-group-numbered">
                     @foreach($categories as $category)
                     <li class="list-group-item">
