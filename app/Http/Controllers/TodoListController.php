@@ -31,7 +31,7 @@ class TodoListController extends Controller
          $id->update([
             'done_at' => now()
         ]);
-        return back() ;
+        return redirect()->back() ;
     }
     public function edit(TodoList $id)
     {

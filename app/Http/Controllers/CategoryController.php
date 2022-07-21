@@ -32,6 +32,10 @@ class CategoryController extends Controller
 
     public function edit(Category $id)
     {
+        if($id->name == 'none'){
+
+            return redirect()->back()->withErrors(['Category'=>'Sorry This Category is Default You Can not Edit !']) ;
+        }
          return view('category.edit' ,['category' => $id]) ;
     }
     public function update(Category $id ,UpdateCategoryRequest $request )
@@ -45,7 +49,13 @@ class CategoryController extends Controller
 
     public function delete(Category $id)
     {
-        $id->delete();
+        if($id->name == 'none'){
+            return redirect()->back()->withErrors(['Category'=>'Sorry This Category is Default You Can not Delete !']) ;
+        }else{
+            TodoList::query()->where('category_id' , '=' ,$id->id )->delete() ;
+            $id->delete();
+        }
+
         return redirect('/categories') ;
     }
 }
